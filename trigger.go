@@ -35,18 +35,18 @@ func (t *Trigger[TVal]) SetValue(v TVal) {
 
 //AddEventId adds a new event ID to internal cache. This is used later to prevent infinite loops from forming when
 //subscribers call other events that call the initial event and in turn starting the infinite loop
-func (t *Trigger[TVal]) AddEventId(id string) {
+func (t *Trigger[TVal]) AddEventId(id IDer) {
 	t.mx.Lock()
 	defer t.mx.Unlock()
-	t.eventHistory[id] = struct{}{}
+	t.eventHistory[id.Id()] = struct{}{}
 }
 
 //CreateEventException allows you to pass this trigger back to the event for the second time
-//func (t *Trigger[TVal]) CreateEventException(id string) {
-//	t.mx.Lock()
-//	defer t.mx.Unlock()
-//	t.eventHistory[id] = struct{}{}
-//}
+func (t *Trigger[TVal]) CreateEventException(id IDer) {
+	t.mx.Lock()
+	defer t.mx.Unlock()
+	delete(t.eventHistory, id.Id())
+}
 
 //===========[FUNCTIONALITY]====================================================================================================
 
