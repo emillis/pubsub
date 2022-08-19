@@ -41,8 +41,8 @@ func (t *Trigger[TVal]) AddEventId(id IDer) {
 	t.eventHistory[id.Id()] = struct{}{}
 }
 
-//CreateEventException allows you to pass this trigger back to the event for the second time
-func (t *Trigger[TVal]) CreateEventException(id IDer) {
+//RemoveEventId allows you to pass this trigger back to the event for the second time
+func (t *Trigger[TVal]) RemoveEventId(id IDer) {
 	t.mx.Lock()
 	defer t.mx.Unlock()
 	delete(t.eventHistory, id.Id())

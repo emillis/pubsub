@@ -4,15 +4,13 @@ import (
 	"github.com/emillis/cacheMachine"
 )
 
-type Trigger[TVal any] TVal
-
 type Event[TVal any] struct {
-	subscribers cacheMachine.Cache[string, func(TVal)]
+	subscribers cacheMachine.Cache[string, Trigger[TVal]]
 }
 
 //TODO: Add method, unsubscribe(id string)
 
-func (e *Event[TVal]) Trigger(v TVal) {
+func (e *Event[TVal]) New(v TVal) {
 
 }
 
