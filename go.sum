@@ -1,2 +1,6 @@
 github.com/emillis/cacheMachine v0.3.4 h1:foFnyLRjuWKzTXB2uZzfmGD6XqYVGb0DliOpDGblaec=
 github.com/emillis/cacheMachine v0.3.4/go.mod h1:WYvPCQbqbo0v/sDENrUtIHTouVmkrL4cMgYCR/xIvdI=
+github.com/emillis/idGen v0.2.0 h1:rqlxH8/6PKLxyjS/vn1k86lYi71BTFjaJyNLq675SZs=
+github.com/emillis/idGen v0.2.0/go.mod h1:mirJWWOsZx6sG9Fy6f4vpgncrRFgs+0c2eivhC1uTXw=
+github.com/emillis/idGen v0.3.0 h1:CGs7kuATNRqWADIPK4zRHfG+PIWUxpY3TO/Tl42kIzU=
+github.com/emillis/idGen v0.3.0/go.mod h1:mirJWWOsZx6sG9Fy6f4vpgncrRFgs+0c2eivhC1uTXw=
