@@ -7,6 +7,11 @@ type Subscription[TVal any] struct {
 	e  *Event[TVal]
 }
 
+//Id returns the subscription ID
+func (s Subscription[TVal]) Id() string {
+	return s.id
+}
+
 //Cancel cancels the subscription
 func (s Subscription[TVal]) Cancel() {
 	if s.e == nil {
