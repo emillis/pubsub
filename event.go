@@ -8,7 +8,8 @@ import (
 
 //===========[STATIC]====================================================================================================
 
-var jenny = idGen.NewGenerator(&idGen.Requirements{Length: 24})
+//Houses the globally accessible id generator
+var jenny idGen.Generator
 
 //===========[STRUCTS]====================================================================================================
 
@@ -79,4 +80,9 @@ func New[TVal any]() Event[TVal] {
 		tmpIdList:   cacheMachine.New[string, struct{}](nil),
 		mx:          sync.RWMutex{},
 	}
+}
+
+//Initializes the module
+func init() {
+	jenny = idGen.NewGenerator(&idGen.Requirements{Length: 24})
 }
