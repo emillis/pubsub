@@ -2,6 +2,7 @@ package pubsub
 
 //===========[TYPES]====================================================================================================
 
+//Subscription defines subscription type
 type Subscription[TVal any] struct {
 	id string
 	e  *Event[TVal]
