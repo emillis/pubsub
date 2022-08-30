@@ -87,6 +87,20 @@ func TestSubscription_Cancel(t *testing.T) {
 	}
 }
 
+func TestSubscription_Id(t *testing.T) {
+	e := pubsub.New[string]()
+	expecting := "string"
+	got := ""
+
+	subscription := e.Subscribe(func(string) {})
+
+	got = reflect.TypeOf(subscription.Id()).String()
+
+	if got != expecting {
+		t.Errorf("Expected ID to be string, got %s", got)
+	}
+}
+
 func TestEvent_Unsubscribe(t *testing.T) {
 	e := pubsub.New[string]()
 	expecting := "hello_world"
